@@ -1,17 +1,16 @@
 <h1>Inputs and Outputs</h1>
 
-<!-- <app-add-employee [name]="employeeName"></app-add-employee>
+<!-- <app-add-employee [name]="employeeName"></app-add-employee> -->
 <ul>
     <h2> Parent component Before Output Binding</h2>
     <li>{{employeeName.firstName}}</li>
     <li>{{employeeName.lastName}}</li>
 </ul>
-<hr> -->
+<hr>
 <!-- [name]="employeeName"  -->
-<app-add-employee [title]="currentItem" (handleNameInChild)="handleNameInParent($event)"
-    [(ngModel)]="employeeName"></app-add-employee>
+<app-add-employee [title]="currentItem" (handleNameInChild)="handleNameInParent($event)"></app-add-employee>
 <ul>
     <h2> Parent component After Output Binding</h2>
-    <li>{{employeeName.firstName}}</li>
-    <li>{{employeeName.lastName}}</li>
+    <li>{{empName.firstName}}</li>
+    <li>{{empName.lastName}}</li>
 </ul>

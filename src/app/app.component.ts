@@ -12,11 +12,15 @@ export class AppComponent implements OnInit {
     firstName: 'Rekha',
     lastName: 'Banga',
   };
+  empName:EmpName = {
+    firstName: '',
+    lastName: ''
+  }
   constructor() {}
   ngOnInit() {}
   handleNameInParent(name: EmpName) {
-    console.log(`Parent says: Change ${this.employeeName}.`);
-    this.employeeName = name;
-    console.log(this.employeeName);
+    console.log(`Parent says: Change ${this.empName}.`);
+    this.empName = name;
+    console.log(this.empName);
   }
 }

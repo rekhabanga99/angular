@@ -7,21 +7,20 @@ import { EmpName } from './types';
   styleUrls: ['./add-employee.component.css'],
 })
 export class AddEmployeeComponent {
+  name:EmpName={
+    firstName: '',
+    lastName: ''
+  }
   constructor() {
     this.title = '';
-    this.name = {
-      firstName: '',
-      lastName: '',
-    };
   }
   @Input() title = ''; // decorate the property with @Input()
-  @Input() name: EmpName;
-
   @Output() handleNameInChild = new EventEmitter<EmpName>();
 
   changeName() {
-    console.log('Child says: emitting item change Name with', this.name);
-    this.handleNameInChild.emit(this.name);
+    const newName = JSON.parse(JSON.stringify(this.name))
+    console.log('Child says: emitting item change Name with',newName);
+    this.handleNameInChild.emit(newName);
   }
 }
 
