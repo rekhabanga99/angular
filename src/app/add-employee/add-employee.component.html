@@ -1,0 +1,25 @@
+<!-- <p>add-employee works!</p>
+<p>
+    Today's title: {{title}}
+</p> -->
+<form class="example-form">
+    <section>
+        <mat-form-field class="example-full-width">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="Enter firstName" name="firstName"
+             [(ngModel)]="name.firstName">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Enter lastName" name="lastName" 
+            [(ngModel)]="name.firstName"
+            >
+        </mat-form-field>
+        <div class="example-button-row">
+            <button (click)="changeName()" mat-button color="primary">Primary</button>
+        </div>
+    </section>
+</form>
+
+<mat-divider></mat-divider>
