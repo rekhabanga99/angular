@@ -6,18 +6,26 @@
     <section>
         <mat-form-field class="example-full-width">
             <mat-label>First Name</mat-label>
-            <input matInput placeholder="Enter firstName" name="firstName"
-             [(ngModel)]="name.firstName">
+            <input matInput placeholder="Enter firstName" name="firstName" [(ngModel)]="name.firstName">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
             <mat-label>Last Name</mat-label>
-            <input matInput placeholder="Enter lastName" name="lastName" 
-            [(ngModel)]="name.lastName"
-            >
+            <input matInput placeholder="Enter lastName" name="lastName" [(ngModel)]="name.lastName">
         </mat-form-field>
+
+    </section>
+    <section>
         <div class="example-button-row">
             <button (click)="changeName()" mat-raised-button color="primary">Primary</button>
+        </div>
+
+        <div class="example-button-row">
+            <button (click)="getNameUsingService()" mat-raised-button color="primary">Get</button>
+        </div>
+
+        <div class="example-button-row">
+            <button (click)="setNameUsingService(name)" mat-raised-button color="primary">Set</button>
         </div>
     </section>
 </form>

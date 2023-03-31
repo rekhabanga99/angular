@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { EmployeeService } from '../services/employee.service';
 import { EmpName } from './types';
 
 @Component({
@@ -11,7 +12,7 @@ export class AddEmployeeComponent {
     firstName: '',
     lastName: ''
   }
-  constructor() {
+  constructor(private employeeService: EmployeeService) {
     this.title = '';
   }
   @Input() title = ''; // decorate the property with @Input()
@@ -22,6 +23,14 @@ export class AddEmployeeComponent {
     console.log('Child says: emitting item change Name with',newName);
     this.handleNameInChild.emit(newName);
   }
+    // set name using service
+    setNameUsingService(name: EmpName) {
+      this.employeeService.setName(name);
+    }
+    // get name using service
+    getNameUsingService() {
+      this.employeeService.getName();
+    }
 }
 
 

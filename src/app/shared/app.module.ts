@@ -10,7 +10,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
-import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { AddEmployeeComponent } from '../add-employee/add-employee.component';
+// declare to use service
+import { EmployeeService } from '../services/employee.service';
 
 @NgModule({
   declarations: [AppComponent, AddEmployeeComponent],
@@ -24,7 +26,8 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
     MatInputModule,
     FormsModule,
   ],
-  providers: [],
+  // add service name in provider
+  providers: [EmployeeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
