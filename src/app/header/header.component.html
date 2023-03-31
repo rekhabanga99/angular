@@ -1,6 +1,8 @@
 <div>
-    <h2><a [routerLink]="['/add']">Employees</a></h2>
-    <h2><a [routerLink]="['/dashboard']">Dashboard</a></h2>
+    <ul>
+    <li><a [routerLink]="['/add']" [routerLinkActive]="['active']">Employees</a></li>
+    <li><a [routerLink]="['/dashboard']" [routerLinkActive]="['active']">Dashboard</a></li>
     <router-outlet></router-outlet>
+</ul>
 
 </div>
