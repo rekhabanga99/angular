@@ -1,22 +1,23 @@
 <!-- <h1>Inputs and Outputs</h1> -->
 
 <!-- <app-add-employee [name]="employeeName"></app-add-employee> -->
-<ul>
-    <h2> Parent component Before Output Binding</h2>
-    <li>{{employeeName.firstName}}</li>
-    <li>{{employeeName.lastName}}</li>
-</ul>
+<div style="text-align:center">
+
+    <h2> Parent component Before Output Binding </h2>
+    <p>{{employeeName.firstName}}</p>
+    <p>{{employeeName.lastName}}</p>
 <hr>
 <!-- [name]="employeeName"  -->
 <app-add-employee [title]="currentItem" (handleNameInChild)="handleNameInParent($event)"></app-add-employee>
-<ul>
     <h2> Parent component After Output Binding</h2>
-    <li>{{empName.firstName}}</li>
-    <li>{{empName.lastName}}</li>
-</ul>
+    <p>{{empName.firstName}}</p>
+    <p>{{empName.lastName}}</p>
 
 <!-- Data from service -->
 <div>
+    <h2> Data from service</h2>
+
     <div>Current Date: {{ currentDate }}</div>
     <div>Current TIme {{ currentTime }}</div>
+</div>
 </div>

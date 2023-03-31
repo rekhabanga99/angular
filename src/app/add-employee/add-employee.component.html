@@ -3,31 +3,25 @@
     Today's title: {{title}}
 </p> -->
 <form class="example-form">
-    <section>
-        <mat-form-field class="example-full-width">
-            <mat-label>First Name</mat-label>
-            <input matInput placeholder="Enter firstName" name="firstName" [(ngModel)]="name.firstName">
-        </mat-form-field>
+    <div style="text-align:center">
 
-        <mat-form-field class="example-full-width">
-            <mat-label>Last Name</mat-label>
-            <input matInput placeholder="Enter lastName" name="lastName" [(ngModel)]="name.lastName">
-        </mat-form-field>
+        <section>
+            <mat-form-field class="example-full-width">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="Enter firstName" name="firstName" [(ngModel)]="name.firstName">
+            </mat-form-field>
 
-    </section>
-    <section>
-        <div class="example-button-row">
-            <button (click)="changeName()" mat-raised-button color="primary">Primary</button>
+            <mat-form-field class="example-full-width">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Enter lastName" name="lastName" [(ngModel)]="name.lastName">
+            </mat-form-field>
+
+        </section>
+        <div display:inline-block>
+            <button class="button" (click)="changeName()" mat-raised-button color="primary">Primary</button>
+            <button class="button" (click)="getNameUsingService()" mat-raised-button color="primary">Get</button>
         </div>
-
-        <div class="example-button-row">
-            <button (click)="getNameUsingService()" mat-raised-button color="primary">Get</button>
-        </div>
-
-        <div class="example-button-row">
-            <button (click)="setNameUsingService(name)" mat-raised-button color="primary">Set</button>
-        </div>
-    </section>
+    </div>
 </form>
 
 <mat-divider></mat-divider>

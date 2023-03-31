@@ -1,0 +1,9 @@
+.alignleft {
+    float: left;
+}
+.alignright {
+    float: right;
+}
+.mat-mdc-raised-button:not(:disabled){
+    margin-left: 10px !important;
+}

@@ -8,10 +8,10 @@ import { EmpName } from './types';
   styleUrls: ['./add-employee.component.css'],
 })
 export class AddEmployeeComponent {
-  name:EmpName={
+  name: EmpName = {
     firstName: '',
-    lastName: ''
-  }
+    lastName: '',
+  };
   constructor(private employeeService: EmployeeService) {
     this.title = '';
   }
@@ -19,18 +19,12 @@ export class AddEmployeeComponent {
   @Output() handleNameInChild = new EventEmitter<EmpName>();
 
   changeName() {
-    const newName = JSON.parse(JSON.stringify(this.name))
-    console.log('Child says: emitting item change Name with',newName);
+    const newName = JSON.parse(JSON.stringify(this.name));
+    console.log('Child says: emitting item change Name with', newName);
     this.handleNameInChild.emit(newName);
   }
-    // set name using service
-    setNameUsingService(name: EmpName) {
-      this.employeeService.setName(name);
-    }
-    // get name using service
-    getNameUsingService() {
-      this.employeeService.getName();
-    }
+  // get name using service
+  getNameUsingService() {
+    this.name = this.employeeService.getName();
+  }
 }
-
-

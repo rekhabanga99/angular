@@ -25,11 +25,22 @@ export class AppComponent implements OnInit {
     this.currentDate = this.employeeService.getTime().toLocaleDateString();
     this.currentTime = this.employeeService.getTime().toLocaleTimeString();
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.empName = {
+      firstName: 'First Name set by parent',
+      lastName: 'LasrName set by parent',
+    };
+    this.employeeService.setName(this.empName);
+  }
   // output binding
   handleNameInParent(name: EmpName) {
     console.log(`Parent says: Change ${this.empName}.`);
     this.empName = name;
     console.log(this.empName);
+  }
+
+  // set name using service
+  setNameUsingService(name: EmpName) {
+    this.employeeService.setName(name);
   }
 }
