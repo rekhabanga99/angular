@@ -9,6 +9,10 @@ export class EmployeeService {
     firstName: 'Rekha',
     lastName: 'Banga',
   };
+  namesListService: EmpName[] = [{
+    firstName : '',
+    lastName: '',
+  }];
   constructor() {}
   getTime() {
     return new Date();
@@ -21,5 +25,13 @@ export class EmployeeService {
     const newName = JSON.parse(JSON.stringify(this.nameInService));
     console.log('Get name using service', newName)
     return newName;
+  }
+  setNameList(nameList: EmpName) {
+    this.namesListService = this.namesListService.concat(nameList);
+    console.log('Set name using service',  this.namesListService)
+  }
+  getNameList() {
+    const namesList = this.namesListService;
+    return namesList;
   }
 }

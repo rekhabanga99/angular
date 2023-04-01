@@ -19,6 +19,10 @@ export class EmployeeBindingsComponent implements OnInit {
     firstName: '',
     lastName: '',
   };
+  nameList: EmpName[] = [{
+    firstName: '',
+    lastName: '',
+  }];
   name: string = '';
   // <!-- Data from service -->
   constructor(private employeeService: EmployeeService) {
@@ -42,5 +46,12 @@ export class EmployeeBindingsComponent implements OnInit {
   // set name using service
   setNameUsingService(name: EmpName) {
     this.employeeService.setName(name);
+  }
+  setNameListUsingService() {
+    this.employeeService.setNameList(this.empName);
+  }
+  getNameListUsingService() {
+    this.nameList = this.employeeService.getNameList();
+    console.log('Thuiii',  this.nameList)
   }
 }

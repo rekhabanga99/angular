@@ -15,11 +15,12 @@
                 <mat-label>Last Name</mat-label>
                 <input matInput placeholder="Enter lastName" name="lastName" [(ngModel)]="name.lastName">
             </mat-form-field>
-
+           
         </section>
         <div display:inline-block>
-            <button class="button" (click)="changeName()" mat-raised-button color="primary">Primary</button>
-            <button class="button" (click)="getNameUsingService()" mat-raised-button color="primary">Get</button>
+            <button class="button" (click)="changeName()" mat-raised-button color="primary">Show Names</button>
+            <button class="button" (click)="getNameUsingService()"
+             mat-raised-button color="primary">Get Name from  Service</button>
         </div>
     </div>
 </form>

@@ -15,5 +15,12 @@
 
     <div>Current Date: {{ currentDate }}</div>
     <div>Current TIme {{ currentTime }}</div>
+    <button class="button"
+        (click)="setNameListUsingService()" mat-raised-button
+        color="primary">Set
+        Names</button>
+
+    <button class="button" (click)="getNameListUsingService()" mat-raised-button color="primary">Get Names</button>
+
 
 </div>

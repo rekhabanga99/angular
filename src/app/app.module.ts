@@ -18,9 +18,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EmployeeBindingsComponent } from './employee-bindings/employee-bindings.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 @NgModule({
-  declarations: [AppComponent, AddEmployeeComponent, DashboardComponent, HeaderComponent, FooterComponent, PageNotFoundComponent, EmployeeBindingsComponent],
+  declarations: [AppComponent, AddEmployeeComponent, DashboardComponent, HeaderComponent, FooterComponent, PageNotFoundComponent, EmployeeBindingsComponent, EmployeeListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
