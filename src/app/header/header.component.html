@@ -1,13 +1,5 @@
-<div>
-    <span><a [routerLink]="['/dashboard']" [routerLinkActive]="['active']">Dashboard</a>
-        <router-outlet></router-outlet>
-    </span>
-    <span>
-        <a [routerLink]="['/employees']" [routerLinkActive]="['active']">Employees</a>
-    </span>
-
-    <span><a [routerLink]="['/employees-bindings']" [routerLinkActive]="['active']">Employees-Bindings</a>
-        <router-outlet></router-outlet>
-    </span>
-
+<div class="topnav">
+    <a [routerLink]="['/dashboard']" [routerLinkActive]="['active']">Dashboard</a>
+    <a [routerLink]="['/employees']" [routerLinkActive]="['active']">Employees</a>
+    <a [routerLink]="['/employees-bindings']" [routerLinkActive]="['active']">Employees-Bindings</a>
 </div>
