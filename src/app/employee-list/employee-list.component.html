@@ -1,4 +1,5 @@
-<button (click)="toggle()" id="bt">
+<button mat-raised-button color="primary" [appCustomHover]="'orange'" [ngStyle]="{
+  'background-color': show? 'green': 'red' ,'margin-top': '10px'}" (click)="toggle()" id="bt">
   {{buttonName}}
 </button>
 
