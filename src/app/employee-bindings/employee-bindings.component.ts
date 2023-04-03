@@ -32,7 +32,7 @@ export class EmployeeBindingsComponent implements OnInit {
   ngOnInit(): void {
     this.empName = {
       firstName: 'First Name set by parent',
-      lastName: 'LasrName set by parent',
+      lastName: 'LastName set by parent',
     };
     this.employeeService.setName(this.empName);
   }

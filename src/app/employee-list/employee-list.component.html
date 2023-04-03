@@ -1,6 +1,16 @@
+<button (click)="toggle()" id="bt">
+  {{buttonName}}
+</button>
+
+<ng-container *ngIf="show">
+  <div style="margin: 0 auto;text-align: left;">
+    <div>
 <p>employee-list works!</p>
 <ul>
     <li *ngFor="let item of friendslist">
-      {{ item.firstName }} {{ item.lastName }}
+      {{ item?.firstName }} {{ item?.lastName }}
     </li>
   </ul>
+</div>
+</div>
+</ng-container>

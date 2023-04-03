@@ -9,6 +9,18 @@ import { EmployeeService } from '../services/employee.service';
 })
 export class EmployeeListComponent {
   friendslist: EmpName[] = []
+  public show:boolean = false;
+  public buttonName:any = 'Show';
+
+  toggle() {
+    this.show = !this.show;
+
+    // Change the name of the button.
+    if(this.show)  
+      this.buttonName = "Hide";
+    else
+      this.buttonName = "Show";
+  }
   constructor(private employeeService: EmployeeService) {
   }
   getNameListUsingService() {
