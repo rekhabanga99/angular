@@ -1,11 +1,11 @@
 <p>employee-bindings works!</p>
-<h2> Parent component Before Output Binding </h2>
+<h2> Parent component Before Service </h2>
 <p>{{employeeName.firstName}}</p>
 <p>{{employeeName.lastName}}</p>
 <hr>
 <!-- [name]="employeeName"  -->
 <app-add-employee [title]="currentItem" (handleNameInChild)="handleNameInParent($event)"></app-add-employee>
-<h2> Parent component After Output Binding</h2>
+<h2> Parent component After Service</h2>
 <p>{{empName.firstName}}</p>
 <p>{{empName.lastName}}</p>
 
