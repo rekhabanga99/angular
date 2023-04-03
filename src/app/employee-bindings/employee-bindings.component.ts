@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EmpName } from '../add-employee/types';
 import { EmployeeService } from '../services/employee.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-employee-bindings',
@@ -25,7 +27,7 @@ export class EmployeeBindingsComponent implements OnInit {
   }];
   name: string = '';
   // <!-- Data from service -->
-  constructor(private employeeService: EmployeeService) {
+  constructor(private router: Router, private employeeService: EmployeeService) {
     this.currentDate = this.employeeService.getTime().toLocaleDateString();
     this.currentTime = this.employeeService.getTime().toLocaleTimeString();
   }
@@ -49,6 +51,7 @@ export class EmployeeBindingsComponent implements OnInit {
   }
   setNameListUsingService() {
     this.employeeService.setNameList(this.empName);
+    this.router.navigate(['/', 'employees-list'])
   }
   getNameListUsingService() {
     this.nameList = this.employeeService.getNameList();
