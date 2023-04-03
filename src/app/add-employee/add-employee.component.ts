@@ -20,7 +20,7 @@ export class AddEmployeeComponent {
 
   changeName() {
     const newName = JSON.parse(JSON.stringify(this.name));
-    console.log('Child says: emitting item change Name with', newName);
+    // console.log('Child says: emitting item change Name with', newName);
     this.handleNameInChild.emit(newName);
   }
   // get name using service

@@ -40,9 +40,9 @@ export class EmployeeBindingsComponent implements OnInit {
   }
   // output binding
   handleNameInParent(name: EmpName) {
-    console.log(`Parent says: Change ${this.empName}.`);
+    // console.log(`Parent says: Change ${this.empName}.`);
     this.empName = name;
-    console.log(this.empName);
+    // console.log(this.empName);
   }
 
   // set name using service
@@ -55,6 +55,5 @@ export class EmployeeBindingsComponent implements OnInit {
   }
   getNameListUsingService() {
     this.nameList = this.employeeService.getNameList();
-    console.log('Thuiii',  this.nameList)
   }
 }

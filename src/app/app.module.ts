@@ -20,6 +20,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { EmployeeBindingsComponent } from './employee-bindings/employee-bindings.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { CustomHoverDirective } from './directive/custom-hover.directive';
+import { HttpClientModule } from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
+
+
 
 @NgModule({
   declarations: [AppComponent, AddEmployeeComponent, DashboardComponent, HeaderComponent, FooterComponent, PageNotFoundComponent, EmployeeBindingsComponent, EmployeeListComponent, CustomHoverDirective],
@@ -32,6 +36,8 @@ import { CustomHoverDirective } from './directive/custom-hover.directive';
     MatDividerModule,
     MatInputModule,
     FormsModule,
+    HttpClientModule,
+    MatTableModule
   ],
   // add service name in provider
   providers: [EmployeeService],
