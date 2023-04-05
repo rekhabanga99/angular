@@ -1,1 +1,37 @@
-<p>update-profile works!</p>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label>
+      First Name:
+      <input type="text" formControlName="name" required>
+    </label>
+  
+    <label>
+      Age
+      <input type="text" formControlName="age">
+    </label>
+  
+    <label>
+      Salary
+      <input type="text" formControlName="salary">
+    </label>
+  
+  
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    <button type="submit" (click)="handleAdd()">Add Employee</button>
+
+  </form>
+  
+  <hr>
+  
+  
+  <p>
+    Form Value: {{ profileForm.value | json }}
+  </p>
+  
+  
+  <p>
+    Form Status: {{ profileForm.status }}
+  </p>
+  
+  <p>
+    <button (click)="updateProfile()">Update Profile</button>
+  </p>
