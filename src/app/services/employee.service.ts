@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { EmpName } from '../add-employee/types';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+type Employee = { name: string; salary: string; age: string };
 @Injectable({
   providedIn: 'root',
 })
@@ -19,8 +19,27 @@ export class EmployeeService {
   ];
   constructor(private http: HttpClient) {}
   getAllData(): Observable<any> {
-    return this.http.get(`https://dummy.restapiexample.com/api/v1/employees`)
- }
+    return this.http.get(`https://dummy.restapiexample.com/api/v1/employees`);
+  }
+  addEmployee(payload: Employee) {
+    this.http
+      .post<Employee>(`https://dummy.restapiexample.com/api/v1/create`, payload)
+      .subscribe((data) => {
+        console.log('add--------', data);
+
+      });
+  }
+  updateEmployee(id: number, payload: Employee): Observable<any> {
+    return this.http.put(
+      `https://dummy.restapiexample.com/api/v1/update/${id}`,
+      payload
+    );
+  }
+  deleteEmployee(id: number): Observable<any> {
+    return this.http.delete(
+      `https://dummy.restapiexample.com/api/v1/delete/${id}`
+    );
+  }
   getTime() {
     return new Date();
   }

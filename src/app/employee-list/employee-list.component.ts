@@ -11,7 +11,7 @@ export class EmployeeListComponent {
   friendslist: any[] = [];
   public show: boolean = true;
   public buttonName: any = 'Show';
-  displayedColumns: string[] = ['id', 'name', 'age', 'salary','actions'];
+  displayedColumns: string[] = ['id', 'name', 'age', 'salary', 'actions'];
   dataSource: any = [];
   toggle() {
     this.show = !this.show;
@@ -20,7 +20,10 @@ export class EmployeeListComponent {
     if (this.show) this.buttonName = 'Hide';
     else this.buttonName = 'Show';
   }
-  constructor(private router: Router, private employeeService: EmployeeService) {}
+  constructor(
+    private router: Router,
+    private employeeService: EmployeeService
+  ) {}
   getNameListUsingService() {
     this.friendslist = this.employeeService.getNameList();
   }
@@ -32,13 +35,13 @@ export class EmployeeListComponent {
       this.dataSource = res.data;
     });
   }
-  handleAdd(){
-    this.router.navigate(['/', 'add-employee'])
+  navigateToAdd() {
+    this.router.navigate(['/', 'add-employee']);
   }
-  handleUpdate(){
-    this.router.navigate(['/', 'add-employee'])
+  navigateToUpdate() {
+    this.router.navigate(['/', 'update-employee']);
   }
-  handleDelete(){
-    this.router.navigate(['/', 'add-employee'])
+  navigateToDelete() {
+    this.router.navigate(['/', 'delete-employee']);
   }
 }
