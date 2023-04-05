@@ -21,13 +21,22 @@ import { EmployeeBindingsComponent } from './employee-bindings/employee-bindings
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { CustomHoverDirective } from './directive/custom-hover.directive';
 import { HttpClientModule } from '@angular/common/http';
-import {MatTableModule} from '@angular/material/table';
-import { UpdateProfileComponent } from './update-profile/update-profile.component';
-
-
+import { MatTableModule } from '@angular/material/table';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 
 @NgModule({
-  declarations: [AppComponent, AddEmployeeComponent, DashboardComponent, HeaderComponent, FooterComponent, PageNotFoundComponent, EmployeeBindingsComponent, EmployeeListComponent, CustomHoverDirective, UpdateProfileComponent],
+  declarations: [
+    AppComponent,
+    AddEmployeeComponent,
+    DashboardComponent,
+    HeaderComponent,
+    FooterComponent,
+    PageNotFoundComponent,
+    EmployeeBindingsComponent,
+    EmployeeListComponent,
+    CustomHoverDirective,
+    UpdateEmployeeComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -40,7 +49,7 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     HttpClientModule,
     MatTableModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   // add service name in provider
   providers: [EmployeeService],
