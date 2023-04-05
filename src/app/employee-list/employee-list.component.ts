@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { EmpName } from '../add-employee/types';
 import { EmployeeService } from '../services/employee.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
@@ -19,7 +20,7 @@ export class EmployeeListComponent {
     if (this.show) this.buttonName = 'Hide';
     else this.buttonName = 'Show';
   }
-  constructor(private employeeService: EmployeeService) {}
+  constructor(private router: Router, private employeeService: EmployeeService) {}
   getNameListUsingService() {
     this.friendslist = this.employeeService.getNameList();
   }
@@ -30,5 +31,14 @@ export class EmployeeListComponent {
       this.friendslist = res.data;
       this.dataSource = res.data;
     });
+  }
+  handleAdd(){
+    this.router.navigate(['/', 'add-employee'])
+  }
+  handleUpdate(){
+    this.router.navigate(['/', 'add-employee'])
+  }
+  handleDelete(){
+    this.router.navigate(['/', 'add-employee'])
   }
 }

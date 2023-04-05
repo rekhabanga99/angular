@@ -1,30 +1,31 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { EmployeeService } from '../services/employee.service';
-import { EmpName } from './types';
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { Validators } from '@angular/forms';
+import { FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
-  styleUrls: ['./add-employee.component.css'],
+  styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent {
-  name: EmpName = {
-    firstName: '',
-    lastName: '',
-  };
-  constructor(private employeeService: EmployeeService) {
-    this.title = '';
-  }
-  @Input() title = ''; // decorate the property with @Input()
-  @Output() handleNameInChild = new EventEmitter<EmpName>();
+  profileForm = this.fb.group({
+    name: ['', Validators.required],
+    age: [''],
+    salary:[''],
+  });
 
-  changeName() {
-    const newName = JSON.parse(JSON.stringify(this.name));
-    // console.log('Child says: emitting item change Name with', newName);
-    this.handleNameInChild.emit(newName);
+  constructor(private fb: FormBuilder) { }
+
+
+  updateProfile() {
+    const paylaod =  {"name":"test","salary":"123","age":"23"}
+    this.profileForm.patchValue(paylaod
+    );
   }
-  // get name using service
-  getNameUsingService() {
-    this.name = this.employeeService.getName();
+
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.profileForm.value);
   }
 }

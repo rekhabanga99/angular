@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { AppRoutingModule } from './shared/app-routing.module';
 import { AppComponent } from './shared/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 // declare to use service
@@ -22,11 +22,12 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { CustomHoverDirective } from './directive/custom-hover.directive';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, AddEmployeeComponent, DashboardComponent, HeaderComponent, FooterComponent, PageNotFoundComponent, EmployeeBindingsComponent, EmployeeListComponent, CustomHoverDirective],
+  declarations: [AppComponent, AddEmployeeComponent, DashboardComponent, HeaderComponent, FooterComponent, PageNotFoundComponent, EmployeeBindingsComponent, EmployeeListComponent, CustomHoverDirective, UpdateProfileComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,7 +38,9 @@ import {MatTableModule} from '@angular/material/table';
     MatInputModule,
     FormsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   // add service name in provider
   providers: [EmployeeService],

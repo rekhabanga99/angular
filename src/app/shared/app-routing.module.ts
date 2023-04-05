@@ -10,10 +10,9 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '', component: PageNotFoundComponent, pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full' },
-  { path: 'employees', component: AddEmployeeComponent, pathMatch: 'full' },
-  { path: 'employees-bindings', component: EmployeeBindingsComponent, pathMatch: 'full' },
   { path: 'employees-list', component: EmployeeListComponent, pathMatch: 'full' },
-
+  { path: 'add-employee', component: AddEmployeeComponent, pathMatch: 'full' },
+  { path: 'employees-bindings', component: EmployeeBindingsComponent, pathMatch: 'full' },
 ];
 
 @NgModule({

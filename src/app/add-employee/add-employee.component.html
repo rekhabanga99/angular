@@ -1,28 +1,35 @@
-<!-- <p>add-employee works!</p>
-<p>
-    Today's title: {{title}}
-</p> -->
-<form class="example-form">
-    <div style="text-align:center">
-
-        <section>
-            <mat-form-field class="example-full-width">
-                <mat-label>First Name</mat-label>
-                <input matInput placeholder="Enter firstName" name="firstName" [(ngModel)]="name.firstName">
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width">
-                <mat-label>Last Name</mat-label>
-                <input matInput placeholder="Enter lastName" name="lastName" [(ngModel)]="name.lastName">
-            </mat-form-field>
-           
-        </section>
-        <div display:inline-block>
-            <button class="button" (click)="changeName()" mat-raised-button color="primary">Show Names</button>
-            <button class="button" (click)="getNameUsingService()"
-             mat-raised-button color="primary">Get Name from  Service</button>
-        </div>
-    </div>
-</form>
-
-<mat-divider></mat-divider>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label>
+      First Name:
+      <input type="text" formControlName="name" required>
+    </label>
+  
+    <label>
+      Age
+      <input type="text" formControlName="age">
+    </label>
+  
+    <label>
+      Salary
+      <input type="text" formControlName="salary">
+    </label>
+  
+  
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  </form>
+  
+  <hr>
+  
+  
+  <p>
+    Form Value: {{ profileForm.value | json }}
+  </p>
+  
+  
+  <p>
+    Form Status: {{ profileForm.status }}
+  </p>
+  
+  <p>
+    <button (click)="updateProfile()">Update Profile</button>
+  </p>
