@@ -17,7 +17,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { EmployeeBindingsComponent } from './employee-bindings/employee-bindings.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { CustomHoverDirective } from './directive/custom-hover.directive';
 import { HttpClientModule } from '@angular/common/http';
@@ -32,7 +31,6 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
     HeaderComponent,
     FooterComponent,
     PageNotFoundComponent,
-    EmployeeBindingsComponent,
     EmployeeListComponent,
     CustomHoverDirective,
     UpdateEmployeeComponent,

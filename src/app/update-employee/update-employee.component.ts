@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 export class UpdateEmployeeComponent {
   profileForm = this.fb.group({
     name: ['', Validators.required],
-    age: [''],
-    salary: [''],
+    email: [''],
+    phone: [''],
   });
 
   constructor(
@@ -23,7 +23,7 @@ export class UpdateEmployeeComponent {
   ) {}
 
   updateProfile() {
-    const paylaod = { name: 'test', salary: '123', age: '23' };
+    const paylaod = { name: 'test', phone: '123', email: '23' };
     this.profileForm.patchValue(paylaod);
   }
 
@@ -34,8 +34,8 @@ export class UpdateEmployeeComponent {
   handleAdd() {
     this.employeeService.addEmployee({
       name: 'test',
-      salary: '123',
-      age: '23',
+      phone: 12399999,
+      email: '23',
     });
     this.router.navigate(['/', 'employees-list']);
   }
@@ -43,8 +43,8 @@ export class UpdateEmployeeComponent {
     console.log('update');
     this.employeeService.updateEmployee(1, {
       name: 'test',
-      salary: '123',
-      age: '23',
+      phone: 12399999999,
+      email: '23',
     });
   }
   handleDelete() {

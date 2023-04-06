@@ -11,7 +11,7 @@ export class EmployeeListComponent {
   friendslist: any[] = [];
   public show: boolean = true;
   public buttonName: any = 'Show';
-  displayedColumns: string[] = ['id', 'name', 'age', 'salary', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'email', 'phone', 'actions'];
   dataSource: any = [];
   toggle() {
     this.show = !this.show;
@@ -24,17 +24,22 @@ export class EmployeeListComponent {
     private router: Router,
     private employeeService: EmployeeService
   ) {}
-  getNameListUsingService() {
-    this.friendslist = this.employeeService.getNameList();
-  }
   ngOnInit() {
-    this.getNameListUsingService();
-    this.employeeService.getAllData().subscribe((res) => {
-      console.log(res);
-      this.friendslist = res.data;
-      this.dataSource = res.data;
+    this.employeeService.getAllData().subscribe((response: any) => {
+      const newArray = response.concat(this.employeeService.nameAdded);
+      const updatedList = newArray?.map((item: any, index: any) => {
+        return {
+          ...item,
+          id: item.id ? item.id : index,
+        };
+      });
+
+      this.dataSource = updatedList;
+
+      console.log(updatedList, 'this.dataSource');
     });
   }
+
   navigateToAdd() {
     this.router.navigate(['/', 'add-employee']);
   }

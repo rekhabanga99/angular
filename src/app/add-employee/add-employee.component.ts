@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormArray } from '@angular/forms';
-import { EmployeeService } from '../services/employee.service';
+import { Employee, EmployeeService } from '../services/employee.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
 export class AddEmployeeComponent {
   profileForm = this.fb.group({
     name: ['', Validators.required],
-    age: [''],
-    salary: [''],
+    phone: [9000, Validators.required],
+    email: ['', Validators.required],
   });
 
   constructor(
@@ -23,30 +23,27 @@ export class AddEmployeeComponent {
     private fb: FormBuilder
   ) {}
 
-  updateProfile() {
-    const paylaod = { name: 'test', salary: '123', age: '23' };
-    this.profileForm.patchValue(paylaod);
-  }
-
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.profileForm.value);
   }
   handleAdd() {
+    console.log('calleed');
+
     this.employeeService.addEmployee({
-      name: 'test',
-      salary: '123',
-      age: '23',
-    });
-    this.router.navigate(['/', 'employees-list']);
+      name: this.profileForm.value.name,
+      phone: this.profileForm.value.phone,
+      email: this.profileForm.value.email,
+    } as Employee);
   }
-  handleUpdate() {
+
+  handleUpdate(id: number) {
     console.log('update');
-    this.employeeService.updateEmployee(1, {
-      name: 'test',
-      salary: '123',
-      age: '23',
-    });
+    this.employeeService.updateEmployee(id, {
+      name: this.profileForm.value.name,
+      phone: this.profileForm.value.phone,
+      email: this.profileForm.value.email,
+    } as Employee);
   }
   handleDelete() {
     console.log('delete');

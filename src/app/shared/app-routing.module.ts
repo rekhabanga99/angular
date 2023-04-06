@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddEmployeeComponent } from '../add-employee/add-employee.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
-import { EmployeeBindingsComponent } from '../employee-bindings/employee-bindings.component';
 import { EmployeeListComponent } from '../employee-list/employee-list.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { UpdateEmployeeComponent } from '../update-employee/update-employee.component';
@@ -14,7 +13,6 @@ const routes: Routes = [
   { path: 'employees-list', component: EmployeeListComponent, pathMatch: 'full' },
   { path: 'add-employee', component: AddEmployeeComponent, pathMatch: 'full' },
   { path: 'update-employee', component: UpdateEmployeeComponent, pathMatch: 'full' },
-  { path: 'employees-bindings', component: EmployeeBindingsComponent, pathMatch: 'full' },
 ];
 
 @NgModule({

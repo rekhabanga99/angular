@@ -2,65 +2,57 @@ import { Injectable } from '@angular/core';
 import { EmpName } from '../add-employee/types';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-type Employee = { name: string; salary: string; age: string };
+import { Router } from '@angular/router';
+export type Employee = { name: string; phone: number; email: string };
 @Injectable({
   providedIn: 'root',
 })
 export class EmployeeService {
-  nameInService: EmpName = {
-    firstName: 'Rekha',
-    lastName: 'Banga',
-  };
-  namesListService: EmpName[] = [
-    {
-      firstName: '',
-      lastName: '',
-    },
-  ];
-  constructor(private http: HttpClient) {}
-  getAllData(): Observable<any> {
-    return this.http.get(`https://dummy.restapiexample.com/api/v1/employees`);
-  }
+  nameAdded: any[] =[]
+  namesListService: any = [];
+  constructor(private router: Router, private http: HttpClient) {}
+
+  private url = 'https://jsonplaceholder.typicode.com/users';  
   addEmployee(payload: Employee) {
     this.http
-      .post<Employee>(`https://dummy.restapiexample.com/api/v1/create`, payload)
+      .post<Employee>(this.url, JSON.stringify(payload))
       .subscribe((data) => {
-        console.log('add--------', data);
-
+        this.router.navigate(['/', 'employees-list']);
+        this.nameAdded.push(payload)
       });
   }
-  updateEmployee(id: number, payload: Employee): Observable<any> {
-    return this.http.put(
-      `https://dummy.restapiexample.com/api/v1/update/${id}`,
-      payload
-    );
-  }
-  deleteEmployee(id: number): Observable<any> {
-    return this.http.delete(
-      `https://dummy.restapiexample.com/api/v1/delete/${id}`
-    );
-  }
+
+  // updateEmployee(id: number, payload: Employee): Observable<any> {
+  //   return this.http.put(
+  //     `https://dummy.restapiexample.com/api/v1/update/${id}`,
+  //     payload
+  //   );
+  // }
+  // deleteEmployee(id: number): Observable<any> {
+  //   return this.http.delete(
+  //     `https://dummy.restapiexample.com/api/v1/delete/${id}`
+  //   );
+  // }
+
+  getAllData() {  
+    return this.http.get(this.url)
+  }  
+  
+  // addEmployee(payload: Employee) {  
+  //   return this.http.post(this.url, JSON.stringify(payload))  
+  // }  
+  
+  updateEmployee(id: number, payload: Employee){  
+    return this.http.patch(this.url + '/' + id, JSON.stringify(payload))  
+  }  
+  
+  deleteEmployee(id: number) {  
+    return this.http.delete(this.url + '/' + id);  
+  }  
   getTime() {
     return new Date();
   }
-  setName(name: EmpName) {
-    this.nameInService = name;
-    // console.log('Set name using service', this.nameInService);
-  }
-  getName() {
-    const newName = JSON.parse(JSON.stringify(this.nameInService));
-    // console.log('Get name using service', newName);
-    return newName;
-  }
-  setNameList(nameList: EmpName) {
-    const oldArray = this.namesListService.concat(nameList);
-    // var newArray = oldArray.filter((v) => v.firstName != '');
-
-    this.namesListService = oldArray;
-    // console.log('Set name using service', this.namesListService);
-  }
   getNameList() {
-    const namesList = this.namesListService;
-    return namesList;
+      return this.nameAdded;
   }
 }
