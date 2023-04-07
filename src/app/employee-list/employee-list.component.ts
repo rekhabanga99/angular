@@ -3,7 +3,9 @@ import { EmpName } from '../add-employee/types';
 import { EmployeeService } from '../services/employee.service';
 import { Router } from '@angular/router';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import { DialogBox } from '../components/modals/confirmation';
+import {ConfirmationDialog} from '../components/modals/confirmation-dialog.component';
+import { AlertDialogComponent } from '../components/modals/alert-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-employee-list',
@@ -23,8 +25,12 @@ export class EmployeeListComponent {
     if (this.show) this.buttonName = 'Hide';
     else this.buttonName = 'Show';
   }
+
+
+
   constructor(
     private router: Router,
+    private snackBar: MatSnackBar,
     private employeeService: EmployeeService,
     public dialog: MatDialog
   ) {}
@@ -53,11 +59,40 @@ export class EmployeeListComponent {
   navigateToDelete() {
     this.router.navigate(['/', 'delete-employee']);
   }
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(DialogBox, {
-      width: '400px',
-      enterAnimationDuration,
-      exitAnimationDuration,
+  openDialog() {
+    const dialogRef = this.dialog.open(ConfirmationDialog,{
+      data:{
+        message: 'Are you sure want to delete?',
+        buttonText: {
+          ok: 'Save',
+          cancel: 'No'
+        }
+      }
+    });
+    const snack = this.snackBar.open('Snack bar open before dialog');
+
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+        snack.dismiss();
+        const a = document.createElement('a');
+        a.click();
+        a.remove();
+        snack.dismiss();
+        this.snackBar.open('Closing snack bar in a few seconds', 'Fechar', {
+          duration: 2000,
+        });
+      }
+    });
+  }
+
+  openAlertDialog() {
+    const dialogRef = this.dialog.open(AlertDialogComponent,{
+      data:{
+        message: 'HelloWorld',
+        buttonText: {
+          cancel: 'Done'
+        }
+      },
     });
   }
 }

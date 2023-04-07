@@ -24,6 +24,9 @@ import { MatTableModule } from '@angular/material/table';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 // import { Dialog } from './components/modals/confirmation';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { AlertDialogComponent } from './components/modals/alert-dialog.component';
+import { ConfirmationDialog } from './components/modals/confirmation-dialog.component';
 
 
 @NgModule({
@@ -37,6 +40,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     EmployeeListComponent,
     CustomHoverDirective,
     UpdateEmployeeComponent,
+    AlertDialogComponent,
+    ConfirmationDialog
     // Dialog
   ],
   imports: [
@@ -52,8 +57,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatTableModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule
-  ],
+    MatDialogModule,
+    MatSnackBarModule  ],
   // add service name in provider
   providers: [EmployeeService],
   bootstrap: [AppComponent],
