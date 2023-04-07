@@ -42,7 +42,6 @@ import { ConfirmationDialog } from './components/modals/confirmation-dialog.comp
     UpdateEmployeeComponent,
     AlertDialogComponent,
     ConfirmationDialog
-    // Dialog
   ],
   imports: [
     BrowserModule,
