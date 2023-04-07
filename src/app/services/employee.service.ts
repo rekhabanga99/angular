@@ -31,19 +31,19 @@ export class EmployeeService {
       });
   }
 
-  // deleteEmployee(id: number): Observable<any> {
-  //   return this.http.delete(
-  //     `https://dummy.restapiexample.com/api/v1/delete/${id}`
-  //   );
-  // }
+  deleteEmployee(id: number) {
+    this.http
+      .delete<Employee>(`${this.url}/${id}`)
+      .subscribe((data) => {
+        this.router.navigate(['/', 'employees-list']);
+         console.log(data, 'deleteEmployee')
+      });
+  }
 
   getAllData() {  
     return this.http.get(this.url)
   }  
 
-  deleteEmployee(id: number) {  
-    return this.http.delete(this.url + '/' + id);  
-  }  
   getTime() {
     return new Date();
   }

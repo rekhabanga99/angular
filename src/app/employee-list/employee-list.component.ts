@@ -59,17 +59,18 @@ export class EmployeeListComponent {
   navigateToDelete() {
     this.router.navigate(['/', 'delete-employee']);
   }
-  openDialog() {
+  openDialog(id?: number) {
     const dialogRef = this.dialog.open(ConfirmationDialog,{
       data:{
         message: 'Are you sure want to delete?',
+        id: id || '',
         buttonText: {
-          ok: 'Save',
+          ok: 'Delete',
           cancel: 'No'
         }
       }
     });
-    const snack = this.snackBar.open('Snack bar open before dialog');
+    const snack = this.snackBar.open('Please check carefully before you delete');
 
     dialogRef.afterClosed().subscribe((confirmed: boolean) => {
       if (confirmed) {
@@ -78,7 +79,7 @@ export class EmployeeListComponent {
         a.click();
         a.remove();
         snack.dismiss();
-        this.snackBar.open('Closing snack bar in a few seconds', 'Fechar', {
+        this.snackBar.open('Delete successfully', 'Fechar', {
           duration: 2000,
         });
       }

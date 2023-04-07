@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 
 @Component({
@@ -11,6 +12,7 @@ export class ConfirmationDialog {
   confirmButtonText = "Yes"
   cancelButtonText = "Cancel"
   constructor(
+    private employeeService: EmployeeService,
     @Inject(MAT_DIALOG_DATA) private data: any,
     private dialogRef: MatDialogRef<ConfirmationDialog>) {
       if(data){
@@ -24,6 +26,6 @@ export class ConfirmationDialog {
 
   onConfirmClick(): void {
     this.dialogRef.close(true);
+    this.employeeService.deleteEmployee(this.data.id)
   }
-
 }
