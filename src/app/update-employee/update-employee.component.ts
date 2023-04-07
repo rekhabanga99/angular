@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormArray } from '@angular/forms';
-import { EmployeeService } from '../services/employee.service';
-import { Router } from '@angular/router';
+import { Employee, EmployeeService } from '../services/employee.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'update-employee-profile',
   templateUrl: './update-employee.component.html',
@@ -11,44 +12,34 @@ import { Router } from '@angular/router';
 })
 export class UpdateEmployeeComponent {
   profileForm = this.fb.group({
-    name: ['', Validators.required],
-    email: [''],
-    phone: [''],
+    name: ['Rekha', Validators.required],
+    email: ['rekhabanga103@gmail.com'],
+    phone: 30000,
+    empId: ''
   });
+  private routeSub: Subscription = new Subscription;
+  empId: any;
 
   constructor(
     private router: Router,
     private employeeService: EmployeeService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private route: ActivatedRoute
   ) {}
-
-  updateProfile() {
-    const paylaod = { name: 'test', phone: '123', email: '23' };
-    this.profileForm.patchValue(paylaod);
-  }
-
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.profileForm.value);
-  }
-  handleAdd() {
-    this.employeeService.addEmployee({
-      name: 'test',
-      phone: 12399999,
-      email: '23',
+  ngOnInit() {
+    this.routeSub = this.route.params.subscribe(params => {
+      console.log(params) //log the entire params object
+      console.log(params['id'],  'idddd') //log the value of id
+      this.empId = params['id']
     });
-    this.router.navigate(['/', 'employees-list']);
   }
+
   handleUpdate() {
     console.log('update');
-    this.employeeService.updateEmployee(1, {
-      name: 'test',
-      phone: 12399999999,
-      email: '23',
-    });
-  }
-  handleDelete() {
-    console.log('delete');
-    this.employeeService.deleteEmployee(1);
+    this.employeeService.updateEmployee(this.empId, {
+      name: this.profileForm.value.name,
+      phone: this.profileForm.value.phone,
+      email: this.profileForm.value.email,
+    } as Employee);
   }
 }

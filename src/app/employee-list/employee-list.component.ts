@@ -48,7 +48,7 @@ export class EmployeeListComponent {
     this.router.navigate(['/', 'add-employee']);
   }
   navigateToUpdate() {
-    this.router.navigate(['/', 'update-employee']);
+    this.router.navigate(['/', 'update-employee/:id']);
   }
   navigateToDelete() {
     this.router.navigate(['/', 'delete-employee']);

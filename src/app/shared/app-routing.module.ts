@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full' },
   { path: 'employees-list', component: EmployeeListComponent, pathMatch: 'full' },
   { path: 'add-employee', component: AddEmployeeComponent, pathMatch: 'full' },
-  { path: 'update-employee', component: UpdateEmployeeComponent, pathMatch: 'full' },
+  { path: 'update-employee', component: UpdateEmployeeComponent },
 ];
 
 @NgModule({

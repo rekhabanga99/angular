@@ -1,5 +1,5 @@
 <div>
-  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="profileForm" (ngSubmit)="handleUpdate()">
     <label>
       First Name:
       <input type="text" formControlName="name" required>
@@ -14,9 +14,10 @@
       Phone Number
       <input type="text" formControlName="phone">
     </label>
-   <div>
-    <button  mat-raised-button  type="submit" (click)="handleUpdate()" [disabled]="!profileForm.valid">Update Employee</button>
-  </div>
+    <div>
+      <button mat-raised-button type="submit" (click)="handleUpdate()" [disabled]="!profileForm.valid">Update
+        Employee</button>
+    </div>
   </form>
 
   <hr>
@@ -27,9 +28,9 @@
 
 </div>
 
-  <p>
-    Form Value: {{ profileForm.value | json }}
-  </p>
+<p>
+  Form Value: {{ profileForm.value | json }}
+</p>
 
 <p>
   Form Status: {{ profileForm.status }}
