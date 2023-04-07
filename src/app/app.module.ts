@@ -22,6 +22,9 @@ import { CustomHoverDirective } from './directive/custom-hover.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+// import { Dialog } from './components/modals/confirmation';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +37,7 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
     EmployeeListComponent,
     CustomHoverDirective,
     UpdateEmployeeComponent,
+    // Dialog
   ],
   imports: [
     BrowserModule,
@@ -48,6 +52,7 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
     MatTableModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule
   ],
   // add service name in provider
   providers: [EmployeeService],

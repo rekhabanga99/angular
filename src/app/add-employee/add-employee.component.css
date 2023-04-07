@@ -8,32 +8,44 @@
 label {
   display: block;
   width: 6em;
-  margin: .5em 0;
-  color: #607D8B;
+  margin: 0.5em 0;
+  color: #607d8b;
   font-weight: bold;
 }
 
 input {
-  height: 2em;
+  height: 3em;
   font-size: 1em;
-  padding-left: .4em;
+  padding-left: 0.4em;
+  display: grid;
+  justify-content: center;
+  margin: auto;
 }
-
+div {
+  display: grid;
+  justify-content: center;
+  margin: auto;
+}
 button {
   font-family: Arial;
-  background-color: #eee;
+  background-color: blueviolet;
   border: none;
-  padding: 5px 10px;
+  /* padding: 5px 10px; */
   border-radius: 4px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #cfd8dc;
+  background-color: yellowgreen;
 }
 
 button:disabled {
   background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}
+button:active {
+  background-color: green;
   color: #ccc;
   cursor: auto;
 }

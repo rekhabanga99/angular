@@ -1,37 +1,36 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+<div>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <label>
       First Name:
       <input type="text" formControlName="name" required>
     </label>
-  
+
     <label>
       Email
       <input type="text" formControlName="email">
     </label>
-  
+
     <label>
       Phone Number
       <input type="text" formControlName="phone">
     </label>
-  
-  
-    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
-    <button type="submit" (click)="handleAdd()">Add Employee</button>
-
+   <div>
+    <button  mat-raised-button  type="submit" (click)="handleAdd()" [disabled]="!profileForm.valid">Add Employee</button>
+  </div>
   </form>
-  
+
   <hr>
-  
-  
+
+
+
+
+
+</div>
+
   <p>
     Form Value: {{ profileForm.value | json }}
   </p>
-  
-  
-  <p>
-    Form Status: {{ profileForm.status }}
-  </p>
-  
-  <p>
-    <!-- <button (click)="updateProfile()">Update Profile</button> -->
-  </p>
+
+<p>
+  Form Status: {{ profileForm.status }}
+</p>

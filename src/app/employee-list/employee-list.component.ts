@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { EmpName } from '../add-employee/types';
 import { EmployeeService } from '../services/employee.service';
 import { Router } from '@angular/router';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { DialogBox } from '../components/modals/confirmation';
+
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
@@ -22,7 +25,8 @@ export class EmployeeListComponent {
   }
   constructor(
     private router: Router,
-    private employeeService: EmployeeService
+    private employeeService: EmployeeService,
+    public dialog: MatDialog
   ) {}
   ngOnInit() {
     this.employeeService.getAllData().subscribe((response: any) => {
@@ -48,5 +52,12 @@ export class EmployeeListComponent {
   }
   navigateToDelete() {
     this.router.navigate(['/', 'delete-employee']);
+  }
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(DialogBox, {
+      width: '400px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
   }
 }
